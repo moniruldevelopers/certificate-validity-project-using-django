@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Certificate Validation</title>
+</head>
+<body>
+    
+    <div style="text-align: center;">      
+        <img src="{% static 'img/banner.png' %}" alt="Banner" class="banner-image" style="width: 350px; height: 80px;">
+        
+          <h1 style="color:red"> Certificate Validation</h1>
+    </div>
+    <form method="GET" action="{% url 'search_result' %}" style="text-align: center;">
+        <input type="text" name="search_id" placeholder="Enter Student ID/Roll">
+        <input type="submit" value="Search Student">
+    </form>
+</body>
+</html>

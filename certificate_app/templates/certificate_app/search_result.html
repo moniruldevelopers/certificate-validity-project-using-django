@@ -1,0 +1,93 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Student Card</title>
+</head>
+<body>    
+
+<div>
+    <h1 style="text-align: center;"> Search Result | <a href="{% url 'home' %}">Back</a> </h1>
+    <hr>
+</div>
+
+<div class="container-fluid  " style="margin-bottom: 50px;"> 
+    <div class="row">
+        {% if student %}
+         <div class="col-md-4 card-container ">            
+            <div class="card custom-card">
+                <img src="{{ student.img.url }}" alt="{{ student.name }}" style="width: 400px; height: 400px;">
+                <div class="card-body ">                   
+                    <h5 class="card-title">Name: {{ student.name }}</h5>
+                    <p class="card-text">ID/Roll: <strong>{{ student.id_roll }}</strong> </p>
+                    <p class="card-text">Department: <strong>{{student.department}}</strong></p>
+                    <p class="card-text">CGPA: <strong>{{student.cgpa}}</strong> </p>                 
+                    <p class="card-text">Email: {{student.phone_number}}</p>
+                    <p class="card-text">University: {{ student.university_name }}</p>
+                    <h2>Semester | GPA | CGPA</h2>
+                    <table>
+                        <tr>
+                          <th>Semester</th>
+                          <th>GPA</th>
+                          <th>CGPA</th>
+                        </tr>
+                        <tr>
+                          <td>Semester 1 GPA</td>
+                          <td>{{ student.semester1_gpa }}</td>   
+                          <th rowspan="8">CGPA 3.50</th>               
+                        </tr>
+                        <tr>
+                            <td>Semester 2 GPA</td>
+                            <td>{{ student.semester2_gpa }}</td>                          
+                          </tr>
+                          <tr>
+                            <td>Semester 3 GPA</td>
+                            <td>{{ student.semester3_gpa }}</td>                          
+                          </tr>
+                          <tr>
+                            <td>Semester 4 GPA</td>
+                            <td>{{ student.semester4_gpa }}</td>                          
+                          </tr>
+                          <tr>
+                            <td>Semester 5 GPA</td>
+                            <td>{{ student.semester5_gpa }}</td>                          
+                          </tr>
+                          <tr>
+                            <td>Semester 6 GPA</td>
+                            <td>{{ student.semester6_gpa }}</td>                          
+                          </tr>
+                          <tr>
+                            <td>Semester 7 GPA</td>
+                            <td>{{ student.semester7_gpa }}</td>                          
+                          </tr>
+                          <tr>
+                            <td>Semester 8 GPA</td>
+                            <td>{{ student.semester8_gpa }}</td>                          
+                          </tr>
+                      </table>
+                </div>
+            </div>
+        </div>
+        {% else %}     
+        <div style="margin: auto; text-align: center;">
+            <p >No student found with that ID/Roll.</p>
+            <h3>Any query contact with us</h3>
+            <address>
+                Help Line: <strong style="background-color: red; color:white">01575082901</strong>
+            </address> 
+        </div> 
+    {% endif %}
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
